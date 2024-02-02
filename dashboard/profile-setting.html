@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard-Css.css">
+    <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
+    <title>Emmaco-dashboard</title>
+</head>
+<body>
+    <div class="topbar">
+        <div class="container">
+            <div class="element">
+                <div class="logo">emmako</div>
+                
+                <div class="profile">
+                    <div class="text">
+                        <h3>Mr. Emmanuel Akam</h3>
+                        <h4>ceo</h4>
+                        <p>status: <i>online</i></p>
+                        <span>04-01-2024</span>
+                    </div>
+                    <div class="prof">
+                        <img src="../images/Mercendez-bENZ-C300-300x225.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- main content -->
+    <div class="all">
+        <div class="responsive">
+
+            <div class="toggle">
+                <i class="fa fa-bars"></i>
+            </div>
+
+            <!-- for sidebar of the main component -->
+
+            <div class="sidebar">
+                <ul>
+                    <a href="dashboardhome.html"><li>home</li></a>
+                    <a href="brands.html"><li>brands (vehicles)</li></a>
+                    <a href="records.html"><li>records</li></a>
+                    <a href="feedback.html"><li>feedbacks</li></a>
+                    <a href="profile-setting.html"><li>profile setting</li></a>
+                    <a href="change-password.html"><li>change password</li></a>
+                    <a href="ui-setting.html"><li>UI-setting</li></a>
+                </ul>
+            </div>
+
+            <div class="content-side">
+                <div class="content">
+                    <div class="heading">
+                        <h2>profile setting</h2>
+                    </div>
+                    <div class="items">
+                        
+                        <form action="" method="post">
+                            
+                            <div class="add">
+                                <a href="">add new admin  +</a>
+                            </div>
+
+                            <div class="entry">
+                                <div class="picture">
+                                    <img src="../images/avater.jpg" alt="" id="pick" onclick="pics()">
+                                </div>
+                            </div>
+                            <div class="entry">
+                                <label for="">name*</label><br>
+                                <input type="text" id="" value="">
+                            </div>
+                            <div class="entry">
+                                <label for="">user*</label> <br>
+                                <input type="text">
+                            </div>
+                            <div class="entry">
+                                <label for="">image*</label> <br>
+                                <input type="file" name="image" id="pict-file" onchange="loadimage(this)">
+                            </div>
+                            <div class="entry">
+                                <label for="">password*</label><br>
+                                <input type="password" id="password" placeholder="Enter current password to save change" >
+                                <span id="eye" onclick="eyes()">
+                                    <i class="fa fa-eye" id="show"></i> 
+                                    <i class="fa fa-eye-slash" id="hide"></i>
+                                </span>
+                            </div>
+                        
+                        <button type="submit">submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="element">
+                <div class="aspect">
+                    <h3>quick note</h3>
+                    <p>15, old part road, Nkpor, Anambra</p>
+                </div>
+                <div class="aspect">
+                    <h3>terms and conditions</h3>
+                    <p>product sales and refund</p>
+                    <p>policy</p>
+                </div>
+                <div class="aspect">
+                    <h3>contacts</h3>
+                    <ul>
+                        <li><a href=""><i class="fab fa-whatsapp"></i> whatsapp</a></li>
+                        <li><a href=""><i class="fab fa-facebook"></i> facebook</a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i> X</a></li>
+                        <li><a href=""><i class="fab fa-instagram"></i> instagram</a></li>
+                        <li><a href=""><i class="fab fa-linkedin"></i> linkiden</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <h3>Copyright copy emmaco. Designed by jaykelly.</h3>
+    </div>
+
+
+
+
+
+    <!-- using image avater to upload image  -->    
+    <script> 
+        function pics() {
+        
+            document.querySelector('#pict-file').click();
+        }
+        function loadimage(e){
+    
+            if(e.files[0]){
+    
+                var filereader = new FileReader();
+    
+                filereader.onload = function(e){
+    
+                    document.querySelector('#pick').setAttribute('src', e.target.result );
+                }
+                filereader.readAsDataURL(e.files[0]) ;
+            }
+        }
+
+        </script>
+
+        <!-- for password eye -->
+
+        <script>
+            function eyes(){
+                password = document.getElementById ("password");
+                hide =document.getElementById ("hide");
+                eye =document.getElementById ("show");
+
+                if (password.type ==="password") {
+                    password.type= "text";
+                    hide.style.display="block";
+                    eye.style.display="none";
+                }else {
+                    password.type="password";
+                    hide.style.display="none";
+                    eye.style.display="block";
+                }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.container {
+    margin: 0px 50px;
+}
+.topbar {
+    background-color: #283780;
+    padding: 10px 0;
+}
+.topbar .element {
+    display: flex;
+    justify-content: space-between;
+}
+.topbar .element .logo {
+    width: 80px;
+    padding: 10px;
+    background-color: #616161;
+    color: #ACF854;
+    text-transform: uppercase;
+    border-radius: 20px 0px 20px 0px;
+}
+.topbar .element .toggle  {
+    display: none;
+
+}
+.topbar .element .toggle i {
+    padding: 10px 20px;
+    background: #616161;
+    color: #ACF854;
+    border-radius: 20px 0px 20px 0px;
+}
+.topbar .element .nav ul {
+    list-style: none;
+    display: flex;
+}
+.topbar .element .nav ul li {
+    margin-right: 20px;
+    background-color: #616161;
+    padding: 10px 20px;
+    border-radius: 0px 20px 0px 20px;
+    transition: .5s ease-in;
+}
+.topbar .element .nav ul li a {
+    color: #ACF854;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.topbar .element .nav ul li:hover a {
+    color: #FFFFFF;   
+}
+.topbar .element .nav ul .home a {
+    color: #FFFFFF;
+}
+.backgroundimage {
+    width: 100%;
+    height: 80vh;
+    background: url(../images/wallpaper.webp);
+    background-size: cover;
+    background-position: center;
+}
+.backgroundimage .backgroundtxt {
+    width: 60%;
+    background: #14000042;
+    color: #5FA113;
+    height: auto;
+    padding: 20px 0px;
+    position: absolute;
+    margin: 150px 25%;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 30px;
+}
+.backgroundimage .backgroundtxt .options {
+    margin-top: 20px;
+    display: flex;
+    place-content: center;
+
+}
+/* .backgroundimage .backgroundtxt .options .bag {
+    background: #EBEBEB;
+    width: 70px;
+    height: 25px;
+    padding: 5px;
+} */
+.backgroundimage .backgroundtxt .options a {
+    color: #616161;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #EBEBEB;
+    padding: 10px 20px;
+    border-radius: 20px 0px 20px 0px;
+    margin-right: 20px
+}
+.backgroundimage .backgroundtxt .options a:hover {
+    background: #ACF854;
+    color: #000000;
+}
+.service {
+    background: #F5F5F5;
+    padding: 30px 0px;
+}
+.head {
+    width: 300px;
+    background: #EBEBEB;
+    color: #616161;
+    text-align: center;
+    padding: 10px 10px;
+    margin: 20px auto;
+    text-transform: capitalize;
+}
+.service .head h1 {
+    text-transform: uppercase;
+}
+.service .element {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 3fr));
+    margin: 10px auto;
+}
+.service .element .card {
+    width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #616161;
+    box-shadow: 2px 3px 4px black;
+    margin: 10px auto;
+}
+.service .element .card a {
+    text-decoration: none;
+}
+.service .element .card .image {
+    width: 300px;
+    height: 200px;
+    box-sizing: border-box
+}
+.service .element .card .image img {
+    width: inherit;
+    height: inherit;
+}
+.service .element .card .text {
+    padding: 10px;
+    color: #616161;
+
+}
+.service .element .card h2 {
+    text-transform: capitalize;
+}
+.brands {
+    background: #EBEBEB;
+    padding: 30px 0;
+}
+.brands .elements .box {
+    width: 80%;
+    height: 100px;
+    overflow: hidden;
+    margin: 20px auto;
+    box-sizing: border-box;
+    display: flex;
+    background: #ACF854;
+}
+.brands .elements .box .image {
+    width: 100%;
+    height: 100%;
+    background: #616161;
+    box-sizing: content-box;
+}
+.brands .elements .box .image img {
+    width: inherit;
+    height: inherit;
+    background: #FFFFFF;
+}
+.brands .elements .box .image:hover {
+    box-shadow: 2px 2px 4px #FFFFFF;
+    transform: scale(0.9);
+}
+.offer {
+    background: #F5F5F5;
+    padding: 30px 0px;
+}
+.offer .elements {
+    background: #000000;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(19rem, 4fr));
+}
+.offer .elements .cards {
+    width: 250px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    border: 1px solid #F5F5F5;
+    border-radius: 20px;
+    box-shadow: 2px 3px 5px #FFFFFF;
+    height: 250px;
+    overflow: hidden;
+    margin: 10px auto;
+}
+.offer .elements .cards:hover {
+    height: 280px;
+    transform: scale(1.001);
+}
+.offer .elements .cards a {
+    text-decoration: none;
+    color: #616161;
+}
+.offer .elements .cards .image {
+    width: 300px;
+    height: 180px;
+}
+.offer .elements .cards .image img {
+    width: inherit;
+    height: inherit;
+    border-radius: 20px 20px 0px 0px;
+}
+.offer .elements .cards .text {
+    width: inherit;
+    text-align: left;
+    text-transform: capitalize;
+    padding: 10px 8px;
+}
+.offer .elements .cards .text h4 {
+    text-align: center;
+}
+.feedback .elements {
+    background: #616161;
+    width: 100%;
+    padding: 20px;
+}
+.feedback .elements .cards {
+    width: 250px;
+    box-sizing: border-box;
+    background: #F5F5F5;
+    padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* mobile view */
+@media only screen and ( max-width: 720px) {
+ 
+    .topbar .element .toggle {
+        display: block;
+    }
+    .topbar .element .nav {
+        position: absolute;
+        margin-top: 50px;
+        left: 0;
+        width: 100%;
+        display: none;
+    }
+    .topbar .element .nav ul {
+        display: block;
+        width: 90%;
+    }
+    .topbar .element .nav ul li {
+        margin-bottom: 5px;
+        width: 100%;
+        text-align: center;
+    }
+    .topbar .element .nav.appear {
+        display: block ;
+        direction: column;
+    }
+
+
+
+}

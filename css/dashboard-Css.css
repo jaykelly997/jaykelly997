@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+.container {
+    margin: 0px 50px;
+}
+.topbar {
+    background-color: #131936;
+    padding: 10px 0;
+}
+.topbar .element {
+    display: flex;
+    justify-content: space-between;
+}
+.topbar .element .logo {
+    width: 80px;
+    height: 20px;
+    padding: 10px;
+    background-color: #616161;
+    color: #ACF854;
+    text-transform: uppercase;
+    border-radius: 20px 0px 20px 0px;
+}
+.topbar .element .profile {
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    display: flex;
+    border-radius: 30px;
+}
+.topbar .element .profile .text {
+    text-transform: capitalize;
+}
+.topbar .element .profile .text h4 {
+    text-transform: uppercase;
+}
+.topbar .element .profile .prof {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px #616161;
+    margin-top: 20px;
+    margin-left: -60px;
+}
+.topbar .element .profile .prof img {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+}
+
+.all .responsive {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.all .toggle  {
+    display: none;
+    position: absolute;
+    float: right;
+    right: 0;
+    margin: 10px;
+}
+.all .toggle i {
+    padding: 10px 20px;
+    background: #616161;
+    color: #ACF854;
+    border-radius: 20px 0px 20px 0px;
+}
+.all .sidebar {
+    background: #616161;
+    width: 300px;
+    padding: 10px 0px;
+    margin-right: 15px;
+}
+.all .sidebar ul li {
+    list-style: none;
+    background-color: #FFFFFF;
+    margin: 10px 5px;
+    border-radius: 30px;
+    padding: 5px 5px;
+}
+.all .sidebar ul a {
+    text-decoration: none;
+    color: #616161;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.all .content-side {
+    width: 80%;
+    margin: 0px 10px;
+}
+.all .content-side .content .heading {
+    background: #EBEBEB;
+    color: #616161;
+    width: 300px;
+    padding: 10px 0px;
+    margin: 30px auto;
+    align-items: center;
+    text-align: center;
+}
+.all .content-side .content .heading h2 {
+    text-transform: capitalize;
+    place-items: center;
+}
+.all .content-side .content .items ul li {
+    background-color: #131936;
+    list-style: none;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.all .content-side .content .items ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    width: 100px;
+    text-transform: capitalize;
+}
+.all .content-side .content .items ul li a:hover {
+    text-decoration: underline;
+}
+.full-content {
+    width: 100%;
+    background: #EBEBEB;
+    padding: 20px 0px;
+    color: #616161;
+}
+.full-content .element {
+    background: #FFFFFF;
+    margin: 20px 0px;
+    padding: 10px;
+}
+.full-content .element .heading h3 {
+    text-transform: capitalize;
+}
+.full-content .element table, th, tr, td {
+    border: 1px solid #616161;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+}
+.full-content .element th {
+    text-transform: uppercase;
+}
+.footer {
+    background: #616161;
+    color: #FFFFFF;
+    padding: 30px;
+}
+.footer .element {
+    display: flex;
+    justify-content: space-around;
+}
+.footer .element .aspect {
+    width: 250px;
+    text-align: center;
+}
+.footer .element .aspect h3 {
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.footer .element .aspect ul li {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 5px;
+}
+.footer .element .aspect ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    text-transform: capitalize;
+}
+.footer .element .aspect ul li i {
+    background: #131936;
+    padding: 3px;
+    font-size: 13px;
+}.copyright {
+    background: #131936;
+    padding: 5px 0px;
+}
+.copyright h3 {
+    color: #FFFFFF;
+    margin: auto;
+    text-align: center;
+}
+
+/* for record page */
+
+.content-side .content .items .selectt .me h4 {
+    text-transform: capitalize;
+}
+.content-side .content .items .selectt .them ul {
+    display: flex;
+    justify-content: space-around;
+}
+.content-side .content .items .selectt .them ul li {
+    width: 60px;
+    background: #EBEBEB;
+    display: flex;
+    justify-content: space-around;
+}
+.full-content .element .heading {
+    margin: 10px 0Px;
+    display: flex;
+    justify-content: space-between;
+}
+.full-content .element .heading .tree {
+    display: flex;
+}
+.full-content .element .heading .tree select {
+    outline: 0;
+    padding: 3px 0px;
+    text-transform: capitalize;
+}
+.full-content .element .heading .add a {
+    background: #131936;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+.full-content .element table .act {
+    display: flex;
+}
+.full-content .element table a {
+    padding: 5px;
+    background: #131936;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+.full-content .element table .act .edit {
+    background: blue;
+}
+.full-content .element table .act .delete {
+    background: red;
+}
+
+
+/* for brand page */
+
+.all .content-side .content .brands .brand ul a {
+    text-decoration: none;
+    color: #616161;
+    text-transform: capitalize;
+
+}
+.all .content-side .content .brands .brand ul a:hover {
+    text-decoration: underline;
+}
+.all .content-side .content .brands .brand ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 3fr));
+    
+}
+.all .content-side .content .brands .brand ul li {
+    list-style: none;
+    background: #131936;
+    width: 120px;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* change password */
+
+.all .content-side .content .items {
+    width: 90%;
+    background: #f5f5f5;
+    padding: 10px;
+}
+.all .content-side .content .items .entry{
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+}
+.all .content-side .content .items .add a {
+    text-decoration: none;
+    background: #131936;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    padding: 5px;
+}
+.all .content-side .content .items .entry .picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-sizing: content-box;
+    box-shadow: 2px 3px 3px #000000;
+    margin: 0px auto;
+}
+.all .content-side .content .items .entry .picture img {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+}
+.all .content-side .content .items .entry label {
+    text-transform: capitalize;
+    color: #616161;
+    margin-right: 30px;
+}
+.all .content-side .content .items .entry input {
+    outline: none;
+    padding: 5px;
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid #ACF854;
+}
+.all .content-side .content .items .entry span {
+    position: absolute;
+    margin-left: -25px;
+    margin-top: 5px;
+    color: #616161;
+}
+.all .content-side .content .items .entry span #hide {
+    display: none;
+}
+.all .content-side .content .items button {
+    width: 150px;
+    padding: 10px 10px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    background: #131936;
+    color: white;
+    border: none;
+} 
+
+
+/* for feedback */
+
+.all .content table, th, tr, td {
+    border: 1px solid #616161;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 5px;
+}
+.all .content th {
+    text-transform: uppercase;
+}
+.all .content table a {
+    padding: 5px;
+    background: red;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 10px;
+    text-transform: capitalize;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 700px) {
+   
+    
+.all .toggle {
+    display: block;
+}
+.all .sidebar {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    display: none;
+    margin-top: 50px;
+}
+.all .sidebar.appear {
+    display: block;
+}
+
+    
+}
