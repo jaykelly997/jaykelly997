@@ -34,7 +34,7 @@
 .topbar .element .profile .text {
     text-transform: capitalize;
 }
-.topbar .element .profile .text h4 {
+.topbar .element .profile .text h5 {
     text-transform: uppercase;
 }
 .topbar .element .profile .prof {
@@ -185,6 +185,9 @@
 
 /* for record page */
 
+.content-side .content .items .selectt {
+    background: #f5f5f5;
+}
 .content-side .content .items .selectt .me h4 {
     text-transform: capitalize;
 }
@@ -194,12 +197,12 @@
 }
 .content-side .content .items .selectt .them ul li {
     width: 60px;
-    background: #EBEBEB;
+    background: #131936;
     display: flex;
     justify-content: space-around;
 }
 .full-content .element .heading {
-    margin: 10px 0Px;
+    margin: 10px 0px;
     display: flex;
     justify-content: space-between;
 }
@@ -211,7 +214,7 @@
     padding: 3px 0px;
     text-transform: capitalize;
 }
-.full-content .element .heading .add a {
+.full-content .element .add span{
     background: #131936;
     padding: 5px 10px;
     text-decoration: none;
@@ -219,6 +222,7 @@
     font-weight: bold;
     border-radius: 10px;
     text-transform: capitalize;
+    cursor: pointer;
 }
 
 .full-content .element table .act {
@@ -267,9 +271,10 @@
 /* change password */
 
 .all .content-side .content .items {
-    width: 90%;
-    background: #f5f5f5;
+    width: auto;
     padding: 10px;
+    margin-bottom: 80px;
+    position: relative;
 }
 .all .content-side .content .items .entry{
     margin-bottom: 10px;
@@ -288,6 +293,7 @@
     height: 150px;
     border-radius: 50%;
     box-sizing: content-box;
+    border: 1px solid black;
     box-shadow: 2px 3px 3px #000000;
     margin: 0px auto;
 }
@@ -348,6 +354,150 @@
     text-transform: capitalize;
 }
 
+
+
+
+/* for ui-setting */
+.all .content-side .content .list {
+    margin-bottom: 20px;
+}
+.all .content-side .content .list ul {
+    display: flex;
+}
+.all .content-side .content .list ul li {
+    list-style: none;
+    margin-right: 10px;
+}
+.all .content-side .content .list ul li a {
+    background: #f5f5f5;
+    color: #131936;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 5px;
+    border: 1px solid #131936;
+}
+.all .content-side .content table .picture {
+    width: 70px;
+    box-sizing: border-box;
+}
+.all .content-side .content table .picture img {
+    width: 70px;
+    border-radius: 50%;
+}
+.all .content-side .content table textarea {
+    outline: 0;
+    height: 80px;
+}
+.all .content-side .content table input {
+    outline: 0;
+    
+}
+.all .content-side .content .ui-element {
+    width: 100%;
+    height: 350px;
+    background: #ACF854;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* for pop-up box */
+.pop {
+    background: #131936;
+    width: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 200px;
+    display: none;
+    transition: 0.2s ease-in;
+}
+.pop .element {
+    margin: auto;
+}
+.pop .element .title {
+    margin: auto;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.pop .element .poptoggle {
+    color: #ACF854;
+    font-size: 30px;
+    position: absolute;
+    margin-left: 300px;
+    margin-top: -40px;
+}
+.pop.active {
+    background: #131936;
+    width: 320px;
+    padding: 10px;
+    /* transform: translateX(50%); */
+    display: block;
+}
+#cancel.return {
+    width: 0px;
+}
+.pop .element .each {
+    margin-bottom: 20px;
+}
+.pop .element .each label {
+    text-transform: capitalize;
+    color: #FFFFFF;
+    margin-right: 20px;
+} 
+.pop .element .each input {
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    float: right;
+}
+.pop .element .each select {
+    outline: none;
+    float: right;
+    width: 160px;
+    padding: 5px;
+    border-radius: 10px;
+}
+.pop .element .each #img {
+    width: 150px;
+    background: #616161;
+}
+.pop .element .image {
+    width: 100px;
+    width: 100px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 10px auto;
+    
+}
+.pop .element .image img {
+    width: inherit;
+    height: inherit;
+    border-radius: 40%;
+}
+.pop .element button {
+    background: #FFFFFF;
+    color: #131936;
+    padding: 10px 50px;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    margin: auto;
+    display: flex;
+}
 
 
 
