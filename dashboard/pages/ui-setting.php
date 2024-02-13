@@ -1,33 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/dashboard-Css.css">
-    <link rel="stylesheet" href="../fontawesome-free-6.1.1-web/css/all.min.css">
-    <title>Emmaco-dashboard</title>
-</head>
-<body>
-    <div class="topbar">
-        <div class="container">
-            <div class="element">
-                <div class="logo">emmako</div>
-                
-                <div class="profile">
-                    <div class="text">
-                        <h3>Mr. Emmanuel Akam</h3>
-                        <h4>ceo</h4>
-                        <p>status: <i>online</i></p>
-                        <span>04-01-2024</span>
-                    </div>
-                    <div class="prof">
-                        <img src="../images/Mercendez-bENZ-C300-300x225.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+<?php
+
+
+
+
+?>
+
+
+        <!-- topbar section -->
+    <?php include "../dashbord_component/topbar.php" ;  ?>
+
+
     <!-- main content -->
     <div class="all">
         <div class="responsive">
@@ -38,17 +20,9 @@
 
             <!-- for sidebar of the main component -->
 
-            <div class="sidebar">
-                <ul>
-                    <a href="dashboardhome.html"><li>home</li></a>
-                    <a href="brands.html"><li>brands (vehicles)</li></a>
-                    <a href="records.html"><li>records</li></a>
-                    <a href="feedback.html"><li>feedbacks</li></a>
-                    <a href="profile-setting.html"><li>profile setting</li></a>
-                    <a href="change-password.html"><li>change password</li></a>
-                    <a href="ui-setting.html"><li>UI-setting</li></a>
-                </ul>
-            </div>
+            <?php include "../dashbord_component/sidebar.php" ;  ?>
+           
+
 
             <div class="content-side">
                 <div class="content">
@@ -74,7 +48,7 @@
 
                                 <div class="entry ui">
                                     <div class="picture ui">
-                                        <img src="../images/avater.jpg" alt="" id="pick" onclick="pics()">
+                                        <img src="../../images/avater.jpg" alt="" id="pick" onclick="pics()">
                                         <label for="">current image</label>
 
                                     </div>
@@ -106,7 +80,7 @@
 
                                 <div class="entry ui">
                                     <div class="picture ui">
-                                        <img src="../images/avater.jpg" alt="" id="pick" onclick="pics()">
+                                        <img src="../../images/avater.jpg" alt="" id="pick" onclick="pics()">
                                         <label for="">current logo</label>
 
                                     </div>
@@ -147,7 +121,7 @@
                                             <td><textarea name="service_note" id="" cols="30" rows="10"></textarea></td>
                                             <td>
                                                 <div class="picture ui">
-                                                    <img src="../images/avater.jpg" alt="" id="pick" onclick="pics()">
+                                                    <img src="../../images/avater.jpg" alt="" id="pick" onclick="pics()">
                                                     <label for="">current logo</label>
                                                 </div>
                                             </td>
@@ -218,34 +192,8 @@
     
 
     <!-- footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="element">
-                <div class="aspect">
-                    <h3>quick note</h3>
-                    <p>15, old part road, Nkpor, Anambra</p>
-                </div>
-                <div class="aspect">
-                    <h3>terms and conditions</h3>
-                    <p>product sales and refund</p>
-                    <p>policy</p>
-                </div>
-                <div class="aspect">
-                    <h3>contacts</h3>
-                    <ul>
-                        <li><a href=""><i class="fab fa-whatsapp"></i> whatsapp</a></li>
-                        <li><a href=""><i class="fab fa-facebook"></i> facebook</a></li>
-                        <li><a href=""><i class="fab fa-twitter"></i> X</a></li>
-                        <li><a href=""><i class="fab fa-instagram"></i> instagram</a></li>
-                        <li><a href=""><i class="fab fa-linkedin"></i> linkiden</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <h3>Copyright &copy emmaco. Designed by jaykelly.</h3>
-    </div>
+    <?php  include "../dashbord_component/footer.php" ; ?>
+   
 
 
 
