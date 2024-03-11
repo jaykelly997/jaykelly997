@@ -1,4 +1,13 @@
+<?php
+include "../../db.php";
 
+$error_message = "";
+
+    $list = "SELECT* FROM emmako_brands " ;
+    $list1 = mysqli_query($me, $list);
+    $list2 =mysqli_fetch_array($list1);
+
+?>
 
         <!-- topbar section -->
 
@@ -104,6 +113,9 @@
                         </select>
                     </div>
                     <div class="add">
+                        <div class="come">
+                            <input type="text" name="search" id="" placeholder= "search"><i class="fa fa-search"></i>
+                        </div>
                         <span>add <i class="fa fa-add"></i></span>
                     </div>
                 </div>

@@ -130,6 +130,7 @@
     padding: 20px 0px;
     color: #616161;
 }
+
 .full-content .element {
     background: #FFFFFF;
     margin: 20px 0px;
@@ -173,12 +174,14 @@
 }
 .footer .element .aspect ul li a {
     text-decoration: none;
+    display: flex;
     color: #FFFFFF;
     text-transform: capitalize;
 }
 .footer .element .aspect ul li i {
     background: #131936;
     padding: 3px;
+    margin-right: 5px;
     font-size: 13px;
 }.copyright {
     background: #131936;
@@ -212,6 +215,10 @@
     margin: 10px 0px;
     display: flex;
     justify-content: space-between;
+}
+.error_message {
+    color: red;
+    text-transform: capitalize;
 }
 .full-content .element .heading .tree {
     display: flex;
@@ -254,9 +261,12 @@
 /* for brand page */
 
 .all .content-side .content .brands .brand ul a {
+    width: 150px;
     text-decoration: none;
-    color: #616161;
+    color: #fff;
     text-transform: capitalize;
+    margin-right: 10px;
+    margin-bottom: 10px;
 
 }
 .all .content-side .content .brands .brand ul a:hover {
@@ -264,7 +274,7 @@
 }
 .all .content-side .content .brands .brand ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 3fr));
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 3fr));
     
 }
 .all .content-side .content .brands .brand ul li {
@@ -274,6 +284,35 @@
     padding: 5px;
     margin: 5px;
 }
+.full-content .element .add {
+    display: flex;
+    justify-content: space-between;
+}
+.full-content .element .add span {
+    display: flex;
+    width: 50px;
+    align-items: right;
+    float: right;
+}
+.full-content .element .come {
+    background: #EBEBEB;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    margin-right: 5px;
+}
+.full-content .element .come input {
+    margin-right: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    outline: 0;
+    border: 1px;
+}
+
+
+
+
+
 
 /* change password */
 
@@ -340,6 +379,15 @@
     border: none;
 } 
 
+.all .content-side .content .admin-new {
+    display: none !important;
+    position: absolute;
+    top: 200px;
+}
+
+.admin-new.active {
+    display: block;
+}
 
 /* for feedback */
 
@@ -363,6 +411,10 @@
     border-radius: 10px;
     text-transform: capitalize;
 }
+table img {
+    width: 100px;
+    height: 50px;
+}
 
 
 
@@ -373,6 +425,8 @@
 }
 .all .content-side .content .list ul {
     display: flex;
+    flex-wrap: nowrap;
+
 }
 .all .content-side .content .list ul li {
     list-style: none;
@@ -382,21 +436,24 @@
     background: #f5f5f5;
     color: #131936;
     text-decoration: none;
+    display: flex;
+    flex-wrap: nowrap;
     text-transform: capitalize;
     padding: 5px;
     border: 1px solid #131936;
 }
 .all .content-side .content table .picture {
-    width: 70px;
+    width: 50px;
     box-sizing: border-box;
 }
 .all .content-side .content table .picture img {
-    width: 70px;
+    width: inherit;
+    height: 50px;
     border-radius: 50%;
 }
 .all .content-side .content table textarea {
     outline: 0;
-    height: 80px;
+    height: 50px;
 }
 .all .content-side .content table input {
     outline: 0;
@@ -404,8 +461,9 @@
 }
 .all .content-side .content .ui-element {
     width: 100%;
-    height: 350px;
+    height: 390px;
     background: #ACF854;
+    margin-bottom: 20px;
     overflow: hidden;
 }
 
@@ -423,9 +481,10 @@
 /* for pop-up box */
 .pop {
     background: #131936;
-    width: 0px;
-    padding: 0px;
+    width: 320px;
+    padding: 10px;
     position: absolute;
+    margin: auto;
     top: 200px;
     display: none;
     transition: 0.2s ease-in;
@@ -447,12 +506,17 @@
     margin-left: 300px;
     margin-top: -40px;
 }
+.pop>div:target{
+    display: block;
+    z-index: 4;
+}
 .pop.active {
     background: #131936;
     width: 320px;
     padding: 10px;
-    /* transform: translateX(50%); */
+    position: fixed;
     display: block;
+    transform: translate(50%, -15%);
 }
 #cancel.return {
     width: 0px;
@@ -538,5 +602,33 @@
     width: 95%;
 }
 
+/* for pop-up responsiveness */
+.pop.active {
+    transform: translate(20%, 0%);
+}
+.full-content .container {
+    margin: 0px 10px;
+}
+.full-content .element .add {
+    display: block;
+}
+
     
 }
+
+
+
+
+
+@media screen and (max-width: 500px) {
+ 
+    /* .all .content-side .content .list ul {
+        display: block;
+    } */
+    /* .all .content-side .content .list ul li a {
+        list-style: none;
+        margin-right: 10px;
+        display: block;
+    } */
+
+    }

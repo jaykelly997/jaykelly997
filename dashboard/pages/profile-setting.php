@@ -59,6 +59,51 @@
                         <button type="submit">submit</button>
                         </form>
                     </div>
+                    <div class="items admin-new" id="admin-new">
+                        
+                        <form action="" method="post">
+                            
+                            <div class="add">
+                                <a href="">add new admin  <i class="fa fa-add"></i></a>
+                            </div>
+
+                            <div class="entry">
+                                <div class="picture">
+                                    <img src="../../images/avater.jpg" alt="" id="pick" onclick="pics()">
+                                </div>
+                            </div>
+                            <div class="entry">
+                                <label for="">name*</label><br>
+                                <input type="text" id="" value="">
+                            </div>
+                            <div class="entry">
+                                <label for="">user*</label> <br>
+                                <input type="text">
+                            </div>
+                            <div class="entry">
+                                <label for="">admin category*</label> <br>
+                                <select name="admin category" id="">
+                                    <option value="normal">normal</option>
+                                    <option value="super">super-admin</option>
+                                </select>
+                            </div>
+                            
+                            <div class="entry">
+                                <label for="">image*</label> <br>
+                                <input type="file" name="image" id="pict-file" onchange="loadimage(this)">
+                            </div>
+                            <div class="entry">
+                                <label for="">password*</label><br>
+                                <input type="password" id="password" placeholder="Enter current password to save change" >
+                                <span id="eye" onclick="eyes()">
+                                    <i class="fa fa-eye" id="show"></i> 
+                                    <i class="fa fa-eye-slash" id="hide"></i>
+                                </span>
+                            </div>
+                        
+                        <button type="new_admin_submit">proceed</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,6 +118,19 @@
 
 
 
+    <!-- toggle add admin -->
+    <script src='../../js/jquery.js'></script>
+     <script> 
+         $(document).ready(function() {
+             
+             $('.add').click(function() {
+                 $('.admin-new').toggleClass('active')
+ 
+             })
+ 
+         })
+ 
+     </script>
 
     <!-- using image avater to upload image  -->    
     <script> 

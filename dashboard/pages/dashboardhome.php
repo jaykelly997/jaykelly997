@@ -1,6 +1,11 @@
-
 <?php
+include "../../db.php";
 
+$error_message = "";
+
+    $list = "SELECT* FROM emmako_brands " ;
+    $list1 = mysqli_query($me, $list);
+    $list2 =mysqli_fetch_array($list1);
 
 ?>
         <!-- topbar section -->
@@ -46,6 +51,9 @@
             <div class="element">
                 <div class="heading">
                     <h3>recent transactions</h3>
+                    <div class="come">
+                        <input type="text" name="search" id="" placeholder= "search"><i class="fa fa-search"></i>
+                    </div>
                 </div>
 
                 <table>
@@ -61,6 +69,8 @@
                         <th>trans status</th>
                     </tr>
                     <tr>
+<?php  while ($list2 = mysqli_fetch_array ($list1)){  ?>
+
                         <td>1</td>
                         <td>tochukwu kalu</td>
                         <td>toyota big daddy</td>
@@ -71,6 +81,7 @@
                         <td>emmako1111</td>
                         <td>complete</td>
                     </tr>
+<?php  }  ?>
                 </table>
             </div>
         </div>

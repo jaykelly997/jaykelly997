@@ -80,14 +80,14 @@
 
                                 <div class="entry ui">
                                     <div class="picture ui">
-                                        <img src="../../images/avater.jpg" alt="" id="pick" onclick="pics()">
+                                        <img src="../../images/avater.jpg" alt="" id="logopick" onclick="logopics()">
                                         <label for="">current logo</label>
 
                                     </div>
                                 </div>
                                 <div class="entry ui">
                                     <label for="">new_logo*</label> <br>
-                                    <input type="file" name="logo" id="pict-file" onchange="loadimage(this)">
+                                    <input type="file" name="logo" id="logopict" onchange="logoimage(this)">
                                 </div>
                                 
                                 <div class="entry">
@@ -121,8 +121,34 @@
                                             <td><textarea name="service_note" id="" cols="30" rows="10"></textarea></td>
                                             <td>
                                                 <div class="picture ui">
-                                                    <img src="../../images/avater.jpg" alt="" id="pick" onclick="pics()">
-                                                    <label for="">current logo</label>
+                                                    <img src="../../images/avater.jpg" alt="" id="bel" onclick="belgium()">
+                                                    <span>
+                                                        <input type="file" name="belgium" id="belg" onchange="belgiumimage(this)">
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><textarea name="service_head" id="" cols="30" rows="10" placeholder="Fairly used car"></textarea></td>
+                                            <td><textarea name="service_note" id="" cols="30" rows="10"></textarea></td>
+                                            <td>
+                                                <div class="picture ui">
+                                                    <img src="../../images/avater.jpg" alt="" id="fair" onclick="fairlyused()">
+                                                    <span>
+                                                        <input type="file" name="fairly_used" id="fairly" onchange="fairlyusedimage(this)">
+                                                    </span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><textarea name="service_head" id="" cols="30" rows="10" placeholder="Scrap car"></textarea></td>
+                                            <td><textarea name="service_note" id="" cols="30" rows="10"></textarea></td>
+                                            <td>
+                                                <div class="picture ui">
+                                                    <img src="../../images/avater.jpg" alt="" id="scraps" onclick="scrap()">
+                                                    <span>
+                                                        <input type="file" name="scrap" id="scrapped" onchange="scrapimage(this)">
+                                                    </span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -138,7 +164,7 @@
                                     </span>
                                 </div>
                             
-                            <button type="submit" name="submit_logo">submit</button>
+                            <button type="submit" name="submit_service">submit</button>
                             </form>
                         </div>
 
@@ -199,7 +225,7 @@
 
 
 
-    <!-- using image avater to upload image  -->    
+    <!-- using image avater for backimage preview -->    
     <script> 
         function pics() {
         
@@ -221,6 +247,91 @@
 
         </script>
 
+ <!-- logo preview -->    
+ <script> 
+        function logopics() {
+        
+            document.querySelector('#logopict').click();
+        }
+        function logoimage(e){
+    
+            if(e.files[0]){
+    
+                var filereader = new FileReader();
+    
+                filereader.onload = function(e){
+    
+                    document.querySelector('#logopick').setAttribute('src', e.target.result );
+                }
+                filereader.readAsDataURL(e.files[0]) ;
+            }
+        }
+
+
+        // for service ui element on image preview
+
+        function belgium() {
+            
+            document.querySelector('#belg').click();
+        }
+        function belgiumimage(e){
+
+            if(e.files[0]){
+
+                var filereader = new FileReader();
+
+                filereader.onload = function(e){
+
+                    document.querySelector('#bel').setAttribute('src', e.target.result );
+                }
+                filereader.readAsDataURL(e.files[0]) ;
+            }
+        }
+
+
+      // for service ui element on image preview gairly used
+
+      function fairlyused() {
+            
+            document.querySelector('#fairly').click();
+        }
+        function fairlyusedimage(e){
+
+            if(e.files[0]){
+
+                var filereader = new FileReader();
+
+                filereader.onload = function(e){
+
+                    document.querySelector('#fair').setAttribute('src', e.target.result );
+                }
+                filereader.readAsDataURL(e.files[0]) ;
+            }
+        }
+
+
+    // for service ui element on image preview scrap
+
+        function scrap() {
+            
+            document.querySelector('#scrapped').click();
+        }
+        function scrapimage(e){
+
+            if(e.files[0]){
+
+                var filereader = new FileReader();
+
+                filereader.onload = function(e){
+
+                    document.querySelector('#scraps').setAttribute('src', e.target.result );
+                }
+                filereader.readAsDataURL(e.files[0]) ;
+            }
+        }
+
+</script>
+
         <!-- for password eye -->
 
         <script>
@@ -240,5 +351,11 @@
                 }
             }
         </script>
+
+<script>
+        function show(el){
+            $('input').attr('type' ,el.checked? 'text' : 'password');
+        }
+    </script>
 </body>
 </html>
