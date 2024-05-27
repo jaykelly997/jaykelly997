@@ -3,11 +3,11 @@
             <div class="element">
                 <div class="aspect">
                     <h3>quick note</h3>
-                    <p>15, old part road, Nkpor, Anambra</p>
+                    <p>15, Old part road, Nkpor, Anambra</p>
                 </div>
                 <div class="aspect">
                     <h3>terms and conditions</h3>
-                    <p>product sales and refund</p>
+                    <p>Product sales and Refund</p>
                     <p>policy</p>
                 </div>
                 <div class="aspect">
@@ -28,9 +28,17 @@
     </div>
 
 
+    <!--preloader section  -->
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top  d-flex align-items-center justify-content-center"><i class="fa fa-arrow-up"></i></a>
+
+
+
 
 
      <!-- for toggle -->
+<!-- for sidebar -->
+
      <script src='../../js/jquery.js'></script>
      <script> 
          $(document).ready(function() {
@@ -43,5 +51,21 @@
          })
  
      </script>
+
+    <script>
+        
+        //  preloader js
+        
+            function preload() {
+        
+            var a= document.getElementById('preloader');
+        
+            a.style.display= "none";
+        
+        }
+        
+    </script>
+
+
 </body>
 </html>

@@ -31,9 +31,9 @@
         $product_location =mysqli_real_escape_string($me, $_POST['product_location']);
         $product_quantity =mysqli_real_escape_string($me, $_POST['product_quantity']);
         $product_color =mysqli_real_escape_string($me, $_POST['product_color']);
-        $product_image =  $_FILES['product_photo']['name'] ;
+        $product_image = $_FILES['product_photo']['name'] ;
 
-        $photo= 'image/'.$product_image ;
+        $photo= '../../images/'.$product_image ;
 
         move_uploaded_file($_FILES['product_photo']['tmp_name'], $photo);
 
@@ -65,17 +65,16 @@
         else{
             $play = "INSERT INTO emmako_brands (product_name, product_model, product_brand, product_category, product_price, product_location, product_quantity, product_color, product_image) VALUES ('$product_name', '$product_model', '$product_brand', '$product_category', '$product_price', '$product_location', '$product_quantity', '$product_color', '$product_image') ";
             $player = mysqli_query($me, $play);
-
             
             $error_message = "product added successfully"  ;
             echo "<script>alert('product added successfully')</script>" ;
 
             
-            // if($product_name == $carry['product_name']) {
-            //     $addy ="UPDATE emmako_brands SET product_quantity= '+ $product_quantity', product_model ='$product_model', product_price ='product_price' ";
-            //     $paddy ="mysqli_query($me, $addy)"
-
-            // }
+            if($product_name == $carry['product_name']) {
+                $error_message = "product already exist"  ;
+                echo "<script>alert('product already exist')</script>" ;
+    
+            }
         }
         
     }
@@ -99,7 +98,7 @@
                     </div>
                     <div class="each">
                         <label for="">product name*</label>
-                        <input type="text" name="product_name" id="" value="<?php echo "$product_name"; ?>"> <br>
+                        <input type="text" name="product_name" id="cap" value="<?php echo "$product_name"; ?>"> <br>
                     </div>
                     <div class="each">
                         <label for="">model*</label>
@@ -107,7 +106,7 @@
                     </div>
                     <div class="each">
                         <label for="">product brand*</label>
-                        <input type="text" name="product_brand" id="" value="<?php echo "$product_brand"; ?>"> <br>
+                        <input type="text" name="product_brand" id="cap" value="<?php echo "$product_brand"; ?>"> <br>
                     </div>
                     <div class="each">
                         <label for="">product category*</label>
@@ -123,7 +122,7 @@
                     </div>
                     <div class="each">
                         <label for="">location*</label>
-                        <input type="text" name="product_location" id="" value="<?php echo "$product_location" ; ?>"> <br>
+                        <input type="text" name="product_location" id="cap" value="<?php echo "$product_location" ; ?>"> <br>
                     </div>
                     <div class="each">
                         <label for="">quantity*</label>
@@ -135,12 +134,12 @@
                     </div>
                     <div class="each">
                         <label for="">product-image*</label>
-                        <input type="file" name="product_photo" id="img" onchange="product_photo(this)"><br>
+                        <input type="file" name="product_photo" id="img" onchange="productphoto(this)"><br>
                     </div>
                     <div class="image" >
-                        <img src="../../images/avater.jpg" id="pin" alt="" onclick="product_image()">
+                        <img src="../../images/avater.jpg" id="pin" alt="" onclick="productimage()">
                     </div>
-                    <input type="submit" name="product_submit" value="submit">
+                    <button name="product_submit">submit</button>
                 </div>
             </form>
         </div>
@@ -167,11 +166,11 @@
 
  <!-- image preview -->    
  <script> 
-        function product_image() {
+        function productimage() {
         
             document.querySelector('#img').click();
         }
-        function product_photo(e){
+        function productphoto(e){
     
             if(e.files[0]){
     

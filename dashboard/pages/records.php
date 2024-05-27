@@ -1,11 +1,81 @@
 <?php
 include "../../db.php";
+$no = 1 ;
 
 $error_message = "";
 
-    $list = "SELECT* FROM emmako_brands " ;
+    $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category,time, product_quantity, product_image FROM emmako_brands " ;
     $list1 = mysqli_query($me, $list);
-    $list2 =mysqli_fetch_array($list1);
+
+    $flood= "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category,time, product_quantity, product_image FROM sold_belgium_vehicles " ;
+    $floor = mysqli_query($me, $flood);
+
+    // fetching for belgium vehicles sold and bought respectively 
+    if(isset($_GET['sold'])) {
+        $category = $_GET['sold'] ;
+    
+        $list = "SELECT* FROM emmako_users WHERE product_category= '$category'" ;
+        $list1 = mysqli_query($me, $list);
+    }
+
+    if(isset($_GET['bought'])) {
+        $category = $_GET['bought'] ;
+    
+        $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category,time, product_quantity, product_image FROM emmako_brands WHERE product_category= '$category'" ;
+        $list1 = mysqli_query($me, $list);
+    }
+
+
+    // fetching data for fairly used vehicles sold and boughr respectively
+    if(isset($_GET['sold'])) {
+        $category = $_GET['sold'] ;
+    
+        $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category,time, product_quantity, product_image FROM sold_fairly_used_vehicles WHERE product_category= '$category'" ;
+        $list1 = mysqli_query($me, $list);
+    }
+
+    if(isset($_GET['bought'])) {
+        $category = $_GET['bought'] ;
+    
+        $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category,time, product_quantity, product_image FROM emmako_brands WHERE product_category= '$category'" ;
+        $list1 = mysqli_query($me, $list);
+    }
+
+// fetching data for scrap vehicles sold and bought respectively
+    if(isset($_GET['sold'])) {
+        $category = $_GET['sold'] ;
+    
+        $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category,time, product_quantity, product_image FROM emmako_brands WHERE product_category= '$category'" ;
+        $list1 = mysqli_query($me, $list);
+    }
+
+    if(isset($_GET['sold'])) {
+        $category = $_GET['sold'] ;
+    
+        $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category,time, product_quantity, product_image FROM emmako_brands WHERE product_category= '$category'" ;
+        $list1 = mysqli_query($me, $list);
+    }
+
+
+
+    // for deleting data from the displayed list
+    if(isset($_GET['delete'])){
+        $id = $_GET['delete'] ;
+
+        echo "<script>alert('Product deleted')</script>" ;
+
+        // $input= "DELETE FROM emmako_brands WHERE id = '$id' ";
+        // $input1= mysqli_query ($me, $input);
+        // if($input1) {
+        //     echo "<script>alert('Product deleted')</script>" ;
+
+        // }else {
+
+        //     $message= "fail to delete";
+
+        // }
+
+    }
 
 ?>
 
@@ -40,9 +110,8 @@ $error_message = "";
                             </div>
                             <div class="them">
                                 <ul>
-                                    <li><a href="">all</a></li>
-                                    <li><a href="">sold</a></li>
-                                    <li><a href="">bought</a></li>
+                                    <li><a href="records.php?sold=<?php echo "belgium"  ?>">sold</a></li>
+                                    <li><a href="records.php?bought=<?php echo "belgium"  ?>">bought</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -53,9 +122,8 @@ $error_message = "";
                             </div>
                             <div class="them">
                                 <ul>
-                                    <li><a href="">all</a></li>
-                                    <li><a href="">sold</a></li>
-                                    <li><a href="">bought</a></li>
+                                    <li><a href="records.php?sold=<?php echo "fairly used"  ?>">sold</a></li>
+                                    <li><a href="records.php?bought=<?php echo "fairly used"  ?>">bought</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -66,9 +134,8 @@ $error_message = "";
                             </div>
                             <div class="them">
                                 <ul>
-                                    <li><a href="">all</a></li>
-                                    <li><a href="">sold</a></li>
-                                    <li><a href="">bought</a></li>
+                                    <li><a href="records.php?sold=<?php echo "scrap"  ?>">sold</a></li>
+                                    <li><a href="records.php?bought=<?php echo "scrap"  ?>">bought</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -79,9 +146,8 @@ $error_message = "";
                             </div>
                             <div class="them">
                                 <ul>
-                                    <li><a href="">all</a></li>
-                                    <li><a href="">sold</a></li>
-                                    <li><a href="">bought</a></li>
+                                    <li><a href="records.php">sold</a></li>
+                                    <li><a href="records.php">bought</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -95,6 +161,13 @@ $error_message = "";
     <div class="full-content">
         <div class="container">
             <div class="element">
+<?php
+
+
+
+
+
+?>
                 <div class="heading">
                     <div class="tree">
                         <h3>records</h3> <span> >> </span> 
@@ -134,17 +207,20 @@ $error_message = "";
                         <th>action</th>
                     </tr>
                     <tr>
-                        <td>1</td>
+<?php  while ($list2 = mysqli_fetch_array($list1)){  ?>
+
+                        <td><?php echo $no  ?></td>
                         <td>tochukwu kalu</td>
-                        <td>toyota big daddy</td>
-                        <td>belgium car</td>
-                        <td><img src="" alt="bigdady"></td>
-                        <td>2,300,000</td>
-                        <td>28-01-2024</td>
+                        <td><?php echo $list2['product_name']  ?></td>
+                        <td><?php echo $list2['product_category']  ?></td>
+                        <td><img src="../../images/<?php echo $list2['product_image'] ?>" alt="bigdady"></td>
+                        <td><?php echo $list2['product_price'] ?></td>
+                        <td><?php echo $list2['time']  ?></td>
                         <td>emmako1111</td>
                         <td>complete</td>
-                        <td> <div class="act"><a class="edit" href="">Edit</a> <a class="delete" href="">delete</a></div></td>
+                        <td> <div class="act"><a class="edit" href="edit-product.php?edit=<?php echo $list2['id']  ?>">Edit</a> <a class="delete" href="records.php?delete=<?php  echo $list2['id']  ?>">delete</a></div></td>
                     </tr>
+<?php $no++ ;  }  ?>
                 </table>
             </div>
         </div>

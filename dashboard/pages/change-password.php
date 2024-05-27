@@ -5,28 +5,34 @@ $error_message ="";
 
 if(isset($_POST['submit_password'])){
     
-    $password = mysqli_real_escape_string($me, $_POST['password']) ;
+    $old_password = mysqli_real_escape_string($me, $_POST['password']) ;
     $new_password = mysqli_real_escape_string($me, $_POST['new_password']) ;
     $confirm_password = mysqli_real_escape_string($me, $_POST['confirm_password']) ;
 
-    if(empty($password) && empty($new_password) && empty($confirm_password)) {
+    if(empty($old_password) && empty($new_password) && empty($confirm_password)) {
         $error_message = "all field required!" ;
     
-    }elseif(empty($password)){
+    }elseif(empty($old_password)){
         $error_message="old password required";
     }elseif (empty($new_password)){
-        $error_message="new_passwork column cannot be empty!" ;
+        $error_message="new_password column cannot be empty!" ;
     }elseif(empty($confirm_password)){
         $error_message= "confirm_password column cannot be empty";
+    }elseif($new_password !== $confirm_password){
+        $error_message= "new password and confirm password doesnt match";
     }
     else{
-        $play ="SELECT *FROM emmako_user WHERE email = '$email' password= '$password' " ;
+        $play ="SELECT *FROM emmako_user WHERE id = '$admin_id' password= '$password' " ;
         $player = "mysqli_query($me, $play)";
         $players = "mysqli_fetch_array($player)";
 
 
-        if($password == $player['password']) {
+        if($old_password == $player['password']) {
+
+            $flow= "UPDATE emmako_user SET password= '$password' WHERE id ='$admin_id' ";
+            $flows= mysqli_query($me, $flow);
             $error_message= "password change successful";
+
         }else {
             $error_message= "incorrect password";
         }

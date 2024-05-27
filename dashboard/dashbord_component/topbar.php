@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../fontawesome-free-6.1.1-web/css/all.min.css">
     <title>brands</title>
 </head>
-<body>
+<body onload="preload()">
     <div class="topbar">
         <div class="container">
             <div class="element">
