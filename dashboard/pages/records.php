@@ -179,7 +179,7 @@ $error_message = "";
                         
                         <span> >> </span> 
                         
-                        <select name="" id=""> 
+                        <select name="" id="" disabled> 
                             <option value="">all</option> 
                             <option value="">sold</option>
                             <option value="">bought</option>
@@ -187,17 +187,20 @@ $error_message = "";
                     </div>
                     <div class="add">
                         <div class="come">
-                            <input type="text" name="search" id="" placeholder= "search"><i class="fa fa-search"></i>
+                            <form action="" method="post">
+                                <input type="text" name="search" id="live_search" placeholder= "search" autocomplete="off"><i class="fa fa-search"></i>
+                            </form>
                         </div>
-                        <span>add <i class="fa fa-add"></i></span>
+                        <span class="adds">add <i class="fa fa-add"></i></span>
                     </div>
                 </div>
 
-                <table>
+                <table id="searchresult">
                     <tr>
                         <th>s/n</th>
                         <th>customer name</th>
                         <th>product name</th>
+                        <th>product model</th>
                         <th>item category</th>
                         <th>image</th>
                         <th>price</th>
@@ -212,6 +215,7 @@ $error_message = "";
                         <td><?php echo $no  ?></td>
                         <td>tochukwu kalu</td>
                         <td><?php echo $list2['product_name']  ?></td>
+                        <td><?php echo $list2['product_model']  ?></td>
                         <td><?php echo $list2['product_category']  ?></td>
                         <td><img src="../../images/<?php echo $list2['product_image'] ?>" alt="bigdady"></td>
                         <td><?php echo $list2['product_price'] ?></td>
@@ -225,6 +229,10 @@ $error_message = "";
             </div>
         </div>
     </div>
+
+    <!-- product addition pop-up -->
+    <?php  include "../dashbord_component/product-addition-pop-up.php" ; ?>
+
 
     <!-- footer -->
 

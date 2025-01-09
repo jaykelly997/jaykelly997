@@ -17,7 +17,7 @@
                         <li><a href=""><i class="fab fa-facebook"></i> facebook</a></li>
                         <li><a href=""><i class="fab fa-twitter"></i> X</a></li>
                         <li><a href=""><i class="fab fa-instagram"></i> instagram</a></li>
-                        <li><a href=""><i class="fab fa-linkedin"></i> linkiden</a></li>
+                        <li><a href=""><i class="fab fa-linkedin"></i> linkedIn</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,6 +34,7 @@
 
 
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 
      <!-- for toggle -->
@@ -64,6 +65,58 @@
         
         }
         
+    </script>
+
+<script>
+
+// for pop up (product addition)
+
+    addBtn = document.querySelector('.adds');
+    pop = document.querySelector('.pop');
+    cancel = document.querySelector('#cancel');
+    
+
+    addBtn.onclick = function() {
+        pop.classList.toggle('active');
+        
+    }
+
+    cancel.onclick = function() {
+            addBtn.classList.remove('active');
+            pop.classList.remove('active');
+    }
+</script>
+
+
+
+
+<!-- ajax for searching  -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+           $("#live_search").keyup(function(){
+
+                var input = $(this).val();
+                // alert(input);
+
+                if(input != ""){
+                    $.ajax({
+                        url: "livesearch.php",
+                        method: "POST",
+                        data: {input:input},
+                        
+                        success:function(data){
+                            $("#searchresult").html(data);
+                            $("#searchresult").css("display","block");
+
+                        }
+                    });
+                }
+                // else {
+                //     $("#searchresult").css("display", "none");
+                // }
+           }); 
+        });
     </script>
 
 

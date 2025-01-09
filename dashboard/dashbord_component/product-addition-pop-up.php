@@ -16,10 +16,9 @@
     
     $error_message ="";
     
-
-        // $collection ="SELECT* FROM emmako_brands";
-        // $collection = mysqli_query($me, $collection);
-        // $carry = mysqli_fetch_array($collections);
+        $collection ="SELECT* FROM emmako_brands";
+        $collections = mysqli_query($me, $collection);
+        $carry = mysqli_fetch_array($collections);
 
     if(isset($_POST['product_submit'])) {
 

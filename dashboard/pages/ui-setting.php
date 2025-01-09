@@ -2,6 +2,9 @@
 
 include "../../db.php";
 
+$service_name= "";
+$service_description="";
+
 
 $call= "SELECT* FROM emmako_ui_element " ;
 $calle= mysqli_query($me, $call);
@@ -25,9 +28,11 @@ if(isset($_POST['background'])){
         $rays = mysqli_query($me, $ray) ;
 
         if ($rays){
-            $error_message = "update success";
+                echo "<script>alert('update successful')</script>";
+                $error_message = "update success";
         }else {
-            $error_message ="update fail";
+                echo "<script>alert('update unsuccessful')</script>";
+                $error_message ="update fail";
         }
     }
 }
@@ -56,38 +61,51 @@ if(isset($_POST['submit_logo'])){
     }
 }
 
-if(isset($_POST['submit_service'])){
+if(isset($_GET['edit'])){
+    $service_id = $_GET['edit'];
 
-    $belgiums = $_FILES['belgium']['name'] ;
-    $fairly_used = $_FILES['fairly_used']['name'] ;
-    $scrap = $_FILES['scrap']['name'] ;
-    $belgium_head = mysqli_real_escape_string($me, $_POST['belgium_head']) ;
-    $belgium_desc = mysqli_real_escape_string($me, $_POST['belgium_note']) ;
-    $fairlyused_head = mysqli_real_escape_string($me, $_POST['fairlyused_head']) ;
-    $fairlyused_desc = mysqli_real_escape_string($me, $_POST['fairlyused_note']) ;
-    $scrap_head = mysqli_real_escape_string($me, $_POST['scrap_head']) ;
-    $scrap_desc = mysqli_real_escape_string($me, $_POST['scrap_note']) ;
+    $input= "DELETE FROM emmako_services WHERE id = '$service_id' ";
+    $input1= mysqli_query ($me, $input);
+    if($input1) {
+        echo "<script>alert('service deleted')</script>" ;
 
-
-    // this is for moving the files into the image folders
-        $photo= '../../images/'.$belgiums ;
-
-        move_uploaded_file($_FILES['belgium']['tmp_name'], $photo);
-
-    $password = mysqli_real_escape_string($me, $_POST['password']);
-
-    if(empty($belgium) && empty($fairly_used) && empty($scrap)){
-        $error_message = "field cannot be empty";
     }else {
-        $ray= "UPDATE emmako_services SET belgium_head= '$belgium_head', belgium_description= '$belgium_desc', fairlyused_head= '$fairlyused_head', fairlyused_description= '$fairlyused_desc', scrap_head= '$scrap_head', scrap_description= '$scrap_desc')" ;
-        $rays = mysqli_query($me, $ray) ;
 
-        if ($rays){
-            $error_message = "update success";
-        }else {
-            $error_message ="update fail";
-        }
+        $message= "fail to delete";
+
     }
+
+    // $service_pics = $_FILES['service_photo']['name'] ;
+    // $service_head = mysqli_real_escape_string($me, $_POST['head']) ;
+    // $service_desc = mysqli_real_escape_string($me, $_POST['description']) ;
+
+
+    // // this is for moving the files into the image folders
+    //     $service_image= '../../images/'.$service_pics ;
+
+    //     move_uploaded_file($_FILES['service_photo']['tmp_name'], $service_image);
+
+
+
+    // if(empty($service_head) && empty($service_desc) ){
+    //     $error_message = "fields cannot be empty";
+    // }
+    // elseif(empty($service_pics)){
+
+    //     $no_image_update= "UPDATE emmako_services SET services_name= '$service_head', services_description ='$service_desc' WHERE id= '$service_id' ";
+    //     $error_message= "update successful";
+
+    // }
+    // else {
+    //     $ray= "UPDATE emmako_services SET services_name= '$service_head', services_description ='$service_desc' services_image= '$service_pics') WHERE id= '$service_id' " ;
+    //     $rays = mysqli_query($me, $ray) ;
+
+    //     if ($rays){
+    //         $error_message = "update success";
+    //     }else {
+    //         $error_message ="update fail";
+    //     }
+    // }
 }
 
 if(isset($_POST['submit_footer'])){
@@ -226,64 +244,50 @@ if(isset($_POST['submit_footer'])){
                         <div class="items" id="service-page">
                             
                             <form action="" method="post" enctype="multipart/form-data">
+                                <?php
+                                $service= "SELECT* FROM emmako_services ";
+                                $show = mysqli_query($me, $service);
                                 
+
+                                ?>
                                 <div class="serve">
+                                    <p class="error_message">
+                                        <?php   if(!empty ($error_message)) {echo "$error_message" ; }     ?> 
+                                    </p>
                                     <table>
                                         <tr>
                                             <th>service header</th>
                                             <th>service description</th>
                                             <th>service image</th>
+                                            <th>action</th>
                                         </tr>
+                                        <?php while($shows =mysqli_fetch_array($show)){ ; ?>
+                                        
                                         <tr>
-                                            <td><textarea name="belgium_head" id="" cols="auto" rows="10" placeholder="Belgium car"></textarea></td>
-                                            <td><textarea name="belgium_note" id="" cols="auto" rows="10"></textarea></td>
+                                            <td><textarea name="head" id="" value="" cols="auto" rows="10" ><?php  echo $shows['services_name'] ; ?></textarea></td>
+                                            <td><textarea name="description" id="" value=""cols="auto" rows="10"><?php  echo $shows['services_description'] ; ?></textarea></td>
                                             <td>
                                                 <div class="picture ui">
-                                                    <img src="../../images/avater.jpg" alt="" id="bel" onclick="belgium()">
-                                                    <span>
-                                                        <input type="file" name="belgium" id="belg" onchange="belgiumimage(this)">
-                                                    </span>
+                                                    <img src="../../images/<?php echo $shows['services_image'] ; ?>" alt="" id="fair" onclick="photo()">
+                                                    <input type="file" name="service_photo" id="service_photo" onchange="serviceimage(this)" >
                                                 </div>
                                             </td>
+                                            <td><a href="service.php">edit</a></td>
                                         </tr>
-                                        <tr>
-                                            <td><textarea name="fairlyused_head" id="" cols="auto" rows="10" placeholder="Fairly used car"></textarea></td>
-                                            <td><textarea name="fairlyused_note" id="" cols="auto" rows="10"></textarea></td>
-                                            <td>
-                                                <div class="picture ui">
-                                                    <img src="../../images/avater.jpg" alt="" id="fair" onclick="fairlyused()">
-                                                    <span>
-                                                        <input type="file" name="fairly_used" id="fairly" onchange="fairlyusedimage(this)">
-                                                    </span>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><textarea name="scrap_head" id="" cols="auto" rows="10" placeholder="Scrap car"></textarea></td>
-                                            <td><textarea name="scrap_note" id="" cols="auto" rows="10"></textarea></td>
-                                            <td>
-                                                <div class="picture ui">
-                                                    <img src="../../images/avater.jpg" alt="" id="scraps" onclick="scrap()">
-                                                    <span>
-                                                        <input type="file" name="scrap" id="scrapped" onchange="scrapimage(this)">
-                                                    </span>
-                                                </div>
-                                            </td>
+                                        
+                                            <?php  } ?>
                                         </tr>
                                     </table>
                                 </div>
                                 
-                                <div class="entry">
-                                    <label for="">password*</label><br>
-                                    <input type="password" id="password" placeholder="Enter current password to save change" >
-                                    <span id="eye" onclick="eyes()">
-                                        <i class="fa fa-eye" id="show"></i> 
-                                        <i class="fa fa-eye-slash" id="hide"></i>
-                                    </span>
-                                </div>
-                            
-                            <button type="submit" name="submit_service">submit</button>
                             </form>
+                            <p class="adds">
+                                add more service
+                            </p>
+                            
+    <!-- service addition pop-up -->
+    <?php  include "../dashbord_component/service-addition.php" ; ?>
+
                         </div>
 
                         <!-- for footer element -->
@@ -394,9 +398,9 @@ if(isset($_POST['submit_footer'])){
 
         // for service ui element on image preview
 
-        function belgium() {
+        function seviceimage() {
             
-            document.querySelector('#belg').click();
+            document.querySelector('#service_photo').click();
         }
         function belgiumimage(e){
 
@@ -406,7 +410,7 @@ if(isset($_POST['submit_footer'])){
 
                 filereader.onload = function(e){
 
-                    document.querySelector('#bel').setAttribute('src', e.target.result );
+                    document.querySelector('#photo').setAttribute('src', e.target.result );
                 }
                 filereader.readAsDataURL(e.files[0]) ;
             }

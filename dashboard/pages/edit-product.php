@@ -47,22 +47,31 @@
         $product_location =mysqli_real_escape_string($me, $_POST['product_location']);
         $product_quantity =mysqli_real_escape_string($me, $_POST['product_quantity']);
         $product_color =mysqli_real_escape_string($me, $_POST['product_color']);
-        $product_image =  $_FILES['product_photo']['name'] ;
+        $product_image =  $_FILES['product-photo']['name'] ;
 
         $photo= '../../images/'.$product_image ;
 
-        move_uploaded_file($_FILES['product_photo']['tmp_name'], $photo);
+        move_uploaded_file($_FILES['product-photo']['tmp_name'], $photo);
 
-
-        $update= "UPDATE emmako_brands SET product_name= '$product_name', product_model ='$product_model', product_brand='$product_brand', product_category= '$product_category', product_price= '$product_price', product_location= '$product_location', product_quantity= '$product_quantity', product_color= '$product_color', product_image= '$product_image' WHERE id= '$id' ";
-        $update1=mysqli_query($me, $update);
-
-        if($update1){
-            echo "<script>alert('update successful')</script>";
-        }else {
-            echo "<script>alert('update unsuccessful')</script>";
-
+        
+        if(empty($product_image)){
+            $no_image_update= "UPDATE emmako_brands SET product_name= '$product_name', product_model ='$product_model', product_brand='$product_brand', product_category= '$product_category', product_price= '$product_price', product_location= '$product_location', product_quantity= '$product_quantity', product_color= '$product_color' WHERE id= '$id' ";
+            $no_image_update1=mysqli_query($me, $no_image_update);
+            echo "<script>alert('updated successful without image changed')</script>" ;
         }
+        else{
+            $update= "UPDATE emmako_brands SET product_name= '$product_name', product_model ='$product_model', product_brand='$product_brand', product_category= '$product_category', product_price= '$product_price', product_location= '$product_location', product_quantity= '$product_quantity', product_color= '$product_color', product_image= '$product_image' WHERE id= '$id' ";
+            $update1=mysqli_query($me, $update);
+    
+            if($update1){
+                echo "<script>alert('update successful with image changed')</script>";
+                
+            }else {
+                echo "<script>alert('update unsuccessful')</script>";
+    
+            }
+        }
+        
     }
 
     ?>
@@ -142,10 +151,10 @@
                                     </div>
                                     <div class="each">
                                         <label for="">product-image*</label>
-                                        <input type="file" name="product_photo" value="<?php echo "$product_image"; ?>" id="img" onchange="product_photo(this)"><br>
+                                        <input type="file" name="product-photo" value="<?php echo "$product_image"; ?>" id="img" onchange="product_photo(this)"><br>
                                     </div>
                                     <div class="image" >
-                                        <img src="../../images/avater.jpg" value="<?php echo "$product_image"; ?>" id="pin" alt="" onclick="product_image()">
+                                        <img src="../../images/<?php echo "$product_image"; ?>"  id="pin" alt="no image" onclick="product_image()">
                                     </div>
                                     <p style="color :white";>NOTE: Add image before updating</p>
                                     <button name="product_update">update</button>
@@ -168,10 +177,26 @@
     <?php  include "../dashbord_component/footer.php" ; ?>
 
 
-
+<!-- image preview on change -->    
+<script> 
+        function product_image() {
+        
+            document.querySelector('#img').click();
+        }
+        function product_photo(e){
     
-
-
+            if(e.files[0]){
+    
+                var filereader = new FileReader();
+    
+                filereader.onload = function(e){
+    
+                    document.querySelector('#pin').setAttribute('src', e.target.result );
+                }
+                filereader.readAsDataURL(e.files[0]) ;
+            }
+        }
+</script>
 
   
 

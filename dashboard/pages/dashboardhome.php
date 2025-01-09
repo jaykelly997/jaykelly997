@@ -1,5 +1,9 @@
 <?php
+SESSION_START();
+
 include "../../db.php";
+
+$id = $_SESSION['user_id'];
 
 $error_message = "";
 
@@ -12,10 +16,10 @@ $error_message = "";
    
     
     if(isset($_GET['belgium'])){
-        $product_category_order = $_GET['belgium'] ;
+        $product_category_orders = $_GET['belgium'] ;
         
 
-    $list= "SELECT product_name, product_price, product_brand_key, product_category, time, product_location, product_brand, product_quantity, product_image FROM emmako_brands WHERE product_category = '$product_category_order' ";
+    $list= "SELECT product_name, product_price, product_model, product_brand_key, product_category, time, product_location, product_brand, product_quantity, product_image FROM emmako_brands WHERE product_category = '$product_category_orders' ";
     $list1= mysqli_query ($me, $list);
     
     }
@@ -26,7 +30,7 @@ $error_message = "";
         $product_category_orders = $_GET['fairly_used'] ;
         
 
-    $list= "SELECT product_name, product_price, product_brand_key, product_category, time, product_location, product_brand, product_quantity, product_image FROM emmako_brands WHERE product_category = '$product_category_orders' ";
+    $list= "SELECT product_name, product_price, product_model, product_brand_key, product_category, time, product_location, product_brand, product_quantity, product_image FROM emmako_brands WHERE product_category = '$product_category_orders' ";
     $list1= mysqli_query ($me, $list);
     
     }
@@ -44,10 +48,10 @@ $error_message = "";
 
 // for recent transaction
     if(isset($_GET['recent'])){
-        $product_category_order = $_GET['recent'] ;
+        $product_category_orders = $_GET['recent'] ;
         
 
-    $list= "SELECT product_name, product_price, product_brand_key, product_category, time, product_location, product_brand, product_quantity, product_image FROM emmako_brands WHERE product_category = '$product_category_order' ";
+    $list= "SELECT product_name, product_price, product_model, product_brand_key, product_model, product_category, time, product_location, product_brand, product_quantity, product_image FROM emmako_brands WHERE product_category = '$product_category_orders' ";
     $list1= mysqli_query ($me, $list);
     
     }
@@ -85,7 +89,7 @@ $error_message = "";
                             <li><a href="dashboardhome.php?belgium=<?php echo "belgium" ?>">belgium cars <i class="fa fa-angle-right"></i></a></li>
                             <li><a href="dashboardhome.php?fairly_used=<?php  echo "fairly used"  ?>">fairly used cars <i class="fa fa-angle-right"></i></a></li>
                             <li><a href="dashboardhome.php?scrapped=<?php echo "Scrap" ?>">scrap cars <i class="fa fa-angle-right"></i></a></li>
-                            <li><a href="dashboardhome.php?recent=<?php echo $list2['product_category'] ?>">recent transactions <i class="fa fa-angle-right"></i></a></li>
+                            <li><a href="dashboardhome.php">recent transactions <i class="fa fa-angle-right"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -98,18 +102,19 @@ $error_message = "";
         <div class="container">
             <div class="element">
                 <div class="heading">
-                    <h3><?php echo $list2['product_category'] ?></h3>
+                    <h3><?php if(empty($product_category_orders)){ echo"recent transaction" ;}else { echo $product_category_orders ;}  ?></h3>
                     <div class="come">
-                        <input type="text" name="search" id="" placeholder= "search"><i class="fa fa-search"></i>
+                        <input type="text" name="search" id="live_search" placeholder= "search" autocomplete="off"><i class="fa fa-search"></i>
                     </div>
                 </div>
 
-                <table>
+                <table id="searchresult">
                     <tr>
                         <th>s/n</th>
-                        <th>customer name</th>
                         <th>product name</th>
+                        <th>product model</th>
                         <th>item category</th>
+                        <th>customer name</th>
                         <th>image</th>
                         <th>price</th>
                         <th>date</th>
@@ -121,8 +126,9 @@ $error_message = "";
 
                         <td><?php  echo "$no" ; ?></td>
                         <td><?php  echo $list2['product_name']  ; ?></td>
-                        <td><?php  echo $list2['product_name']  ; ?></td>
+                        <td><?php  echo $list2['product_model']  ; ?></td>
                         <td><?php  echo $list2['product_category']  ; ?></td>
+                        <td><?php  echo $list2['product_name']  ; ?></td>
                         <td><img src="../../images/<?php  echo $list2['product_image']  ; ?>" alt="bigdady"></td>
                         <td><?php  echo $list2['product_price']  ; ?></td>
                         <td><?php echo $list2['time']  ?></td>

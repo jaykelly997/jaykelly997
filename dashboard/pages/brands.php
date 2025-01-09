@@ -3,6 +3,7 @@
     include "../../db.php";
 
     $error_message = "";
+    $no = 1 ;
 
     // for the deleting of brands
 
@@ -19,8 +20,11 @@
         $message= "fail to delete";
 
     }
+    
 
     }
+
+    // listing of various brands availablle
 
     // if(isset($_GET['mercedez'])){
     //     $brand=mysqli_real_escape_string($me, $POST['mercedez']);
@@ -79,9 +83,9 @@
     //     $list1 = mysqli_query($me, $list);
     // }
 
-    $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_quantity, product_image FROM emmako_brands LIMIT 7" ;
+    $list = "SELECT DISTINCT product_brand FROM emmako_brands " ;
     $list1 = mysqli_query($me, $list);
-    // $list2 =mysqli_fetch_array($list1);
+    
 
     ?>
         <!-- topbar section -->
@@ -118,17 +122,24 @@
 
 <?php
     if ($list1->num_rows>0) {
-    while ($row = $list1-> fetch_assoc() ){
-       echo "<li><a class='brandings' href='" ."brands.php?=".$row["product_brand"]  ."'>" .$row['product_brand'] . "</a></li>";
+    while ($list2 = $list1-> fetch_assoc() ){
+       echo "<li><a class='brandings' href='" ."brands.php?link=".$list2["product_brand"]  ."'>" .$list2['product_brand'] . "</a></li>";
+        
     }
 }
 
-if(isset($_GET['product_brand'])){
-    $links= $_GET['product_brand'] ;
 
-    echo "$links";
-    die;
-}
+    if(isset($_GET['link'])){
+        $links= $_GET['link'] ;
+     
+
+    $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$links' " ;
+    $list1 = mysqli_query($me, $list);
+
+    }
+
+//  to access link from various brands
+
 
 ?>
 
@@ -153,79 +164,23 @@ if(isset($_GET['product_brand'])){
         <div class="container">
             <div class="element">
                 
-<?php
-$no = 1 ;
-$list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands" ;
-$list1 = mysqli_query($me, $list);
 
-if(isset($_POST['draw'])) {
-
-    $brand = mysqli_real_escape_string($me, $_POST['category']) ;
-    
-
- switch ($brand) {
-    case "mercedez" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-    case "nissan" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-    case "lexus" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-    case "honda" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-    case "toyota" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-    case "audi" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-    case "volk-wagon" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-    
-    case "mazda" :
-        $list = "SELECT product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands WHERE product_brand ='$brand' LIMIT 9" ;
-        $list1 = mysqli_query($me, $list);
-    break;
-
-
- }
-}
-?><form action="" method="post">
+<form action="" method="post">
                 <div class="heading">
                     <div class="tree">
-                        <h3>vehicle brands</h3> <span> >>   
-                            <select value="" name="category" id="" onchange="my_option()" >
-                                <option value="">all</option>
-                                <option value="toyota">toyota</option> 
-                                <option value="mercedez">mercedez</option> 
-                                <option value="nissan">nissan</option> 
-                                <option value="volks-wagon">volks-wagon</option> 
-                                <option value="audi">audi</option> 
-                                <option value="mazda">mazda</option>
-                        </select>
-                        <button name="draw">select</button>
+                        <h3>vehicle brands</h3> <span> >>  
+                            <input type="text" name="" value="<?php if(empty($links)){ echo "All";}else { echo "$links" ;}   ?>" id="disabled" disabled>
                     </div>
                     
                     <div class="add" >
                         <div class="come">
-                            <input type="text" name="search" id="" placeholder= "search"><i class="fa fa-search"></i>
+                            <input type="text" name="search" id="live_search" placeholder= "search" autocomplete="off"><i class="fa fa-search"></i>
                         </div>
                         <span class="adds">add <i class="fa fa-add"></i></span>
                     </div>
                 </div>
 
-                <table>
+                <table id="searchresult">
                     <tr>
                         <th>s/n</th>
                         <th>product name</th>
@@ -239,17 +194,16 @@ if(isset($_POST['draw'])) {
                         <th>action</th>
                     </tr>
                     <tr>
-                        
-
-<?php  while ($list2 = mysqli_fetch_assoc ($list1)){  ?>
+                   <?php    
+ while ($list2 = mysqli_fetch_assoc ($list1)){  ?>
                         <td><?php  echo "$no" ; ?></td>
-                        <td><?php  echo $list2['product_name']  ; ?></td>
+                        <td><?php  echo $list2['product_name'] ; ?></td>
                         <td><?php  echo $list2['product_model']  ; ?></td>
                         <td><?php  echo $list2['product_price']  ; ?></td>
                         <td><img src="../../images/<?php  echo $list2['product_image']  ; ?>" alt=""></td>
                         <td><?php  echo $list2['product_location']  ; ?></td>
                         <td><?php  echo $list2['product_quantity']  ; ?></td>
-                        <td><?php  echo $list2['product_category']  ; ?></td>
+                        <td><?php  echo $list2['product_category']  ; ?></td> 
                         <td><?php  if ($list2['product_quantity'] > 0){ echo "Available" ;} else { echo "Unavailable";}   ?></td>
                         <td> <div class="act"><a id="edit" class="edit" href="edit-product.php?edit=<?php echo $list2['id'] ?>">edit</a> <a class="delete" href="brands.php?delete=<?php echo $list2['id']  ?>">delete</a></div></td>
                         <!-- <td>1</td>
@@ -263,10 +217,34 @@ if(isset($_POST['draw'])) {
                         <td>Available</td>
                         <td> <div class="act"><a class="edit" href="">edit</a> <a class="delete" href="">delete</a></div></td> -->
                     </tr>
+
 <?php $no ++; }
-$me -> close();
+if(empty($links)){
+    $list = "SELECT id, product_name, product_price, product_brand_key, product_location, product_brand, product_model, product_category, product_quantity, product_image FROM emmako_brands " ;
+    $list1 = mysqli_query($me, $list);
+
+}
+ while ($list2= mysqli_fetch_assoc($list1)){   ?>
+                    
+    <td><?php echo $no  ?></td>
+    <td><?php echo $list2['product_name']   ?></td>
+    <td><?php  echo $list2['product_model']  ; ?></td>
+    <td><?php  echo $list2['product_price']  ; ?></td>
+    <td><img src="../../images/<?php  echo $list2['product_image']  ; ?>" alt=""></td>
+    <td><?php  echo $list2['product_location']  ; ?></td>
+    <td><?php  echo $list2['product_quantity']  ; ?></td>
+    <td><?php  echo $list2['product_category']  ; ?></td> 
+    <td><?php  if ($list2['product_quantity'] > 0){ echo "Available" ;} else { echo "Unavailable";}   ?></td>
+    <td> <div class="act"><a id="edit" class="edit" href="edit-product.php?edit=<?php echo $list2['id'] ?>">edit</a> <a class="delete" href="brands.php?delete=<?php echo $list2['id']  ?>">delete</a></div></td>
+</tr>
+    <?php $no ++;  } 
+    
+    
+
 ?>
                 </table>
+                <a href="">previous</a><a href="">next</a>
+
             </div>
             </form>
         </div>
@@ -290,42 +268,7 @@ $me -> close();
 
 <!-- for active class for sidebar -->
 
-<script>
-    $(document).ready(function (){
-        $(".one").click(function(){
-            $(this).addClass("active").siblings().removeClass("active");
-        });
-    });
-</script>
-
-<script>
-
-    // for pop up (product addition)
-
-        addBtn = document.querySelector('.adds');
-        pop = document.querySelector('.pop');
-        cancel = document.querySelector('#cancel');
-        
-
-        addBtn.onclick = function() {
-            pop.classList.toggle('active');
-            
-        }
-
-        cancel.onclick = function() {
-                addBtn.classList.remove('active');
-                pop.classList.remove('active');
-        }
-    </script>
-
-
-
-<script>
-    $('.brandings').click(function(){
-        ($list2 = mysqli_fetch_assoc ($list1)).destroy();
-    });
-</script>
+ 
 
 
 </body>
-</html>

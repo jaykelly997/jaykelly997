@@ -1,8 +1,15 @@
 <?php
 
+SESSION_START();
+
 include "../../db.php";
 
-    $list = "SELECT* FROM emmako_users" ;
+$id = $_SESSION['user_id'];
+$username = "";
+$email = "";
+
+
+    $list = "SELECT* FROM emmako_users where id = '$id' " ;
     $list1 = mysqli_query($me, $list);
     $list2 = mysqli_fetch_array($list1);
     
@@ -135,7 +142,7 @@ $admin_category ="";
                             </div>
                             <div class="entry">
                                 <label for="">name*</label><br>
-                                <input type="text" name="admin_name" id="" value="">
+                                <input type="text" name="admin_name" id="" value="<?php echo $list2['username'] ; ?>">
                             </div>
                             <div class="entry">
                                 <label for="">user</label><br>
