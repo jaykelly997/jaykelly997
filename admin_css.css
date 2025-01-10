@@ -1,0 +1,42 @@
+@import url('./root.css');
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    padding: 10px !important;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: black;
+    background-color: var(--sub-white);
+    padding: 10px;
+    border-radius: 20px;
+}
+.profile img{
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+}
+.profile-info{
+    display: flex;
+    flex-direction: column;
+}
+.right{
+    width: 20%;
+    height: 100% !important;
+    background-color: violet;
+    padding: 10px 5px 5px;
+}
+.right ul{
+    list-style: none;
+}
+.right ul li{
+    height: 50px;
+    background-color: var(--sub-white);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}

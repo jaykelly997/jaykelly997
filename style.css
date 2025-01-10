@@ -1,0 +1,633 @@
+@import url('./root.css');
+.hero{
+  height: 90vh;
+  width: 100%;
+}
+.hero img{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.hero-content{
+  background-color: var(--sub-dark);
+  position: absolute;
+  top: 30%;
+  left: 6%;
+  right: 6%;
+  min-width: 300px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .7;
+}
+.hero .contentment {
+  background-color: var(--sub-dark);
+  position: absolute;
+  top: 50%;
+  height: auto;
+  justify-content: center;
+  display: block;
+  padding: 20px 0px;
+}
+.hero .contentment h3{
+  margin: auto;
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+.hero .contentment .options {
+  position: relative;
+  text-align: center;
+  justify-items: center;
+  margin-top: 20px;
+}
+.hero .hero-content .options a {
+  background: #ebebeb;
+  color: #616161;
+  font-weight: bold;
+  padding: 10px 10px;
+  text-transform: capitalize;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid #FFFFFF;
+
+}
+.hero .hero-content .options a:hover {
+  background-color: #616161;
+  color: #fff;
+}
+.hero-content h3{
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+}
+.img-rounded{
+  border-radius: 10px;
+}
+
+.section nav{
+  background-color: transparent;
+  position: relative;
+}
+.section-header{
+  width: 350px;
+  text-align: center;
+  margin: 0px auto;
+}
+.section .service-content p {
+  text-align: center;
+}
+
+.brand-container{
+  padding: 20px;
+  background-color: var(--color-secondary);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+#brands .brandss {
+  box-sizing: border-box;
+  width: 90%;
+  background: #ebebeb;
+  margin: 20px auto;
+}
+#brands .element {
+  box-sizing: content-box;
+  width: 90%;
+  background: #616161;
+  height: auto;
+  margin: 30px auto auto auto;
+
+}
+#brands .element .brandss a {
+  text-decoration: none;
+  padding: 20px;
+}
+#brands .element .brandss img {
+  width: 100%;
+  background: #fff;
+}
+#brands .element .brandss a:hover {
+  background: #fff;
+}
+.section .nav button{
+  background-color: #4f4f4f;
+
+}
+
+.service-box{
+  min-height: 200px;
+}
+.carousel-inner{
+  height: 300px;
+  margin-bottom: 100px;
+}
+.side{
+  background-color: #fff;
+  border: 1px solid var(--sub-dark);
+  min-width: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.side .defBtn{
+  background-color: var(--color-default);
+  padding: 10px;
+  width: 10rem;
+  margin-bottom: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+.side .defBtn.active{
+  background-color: var(--sub-text-color);
+  color: var(--color-default);
+}
+
+.form-group.d-flex{
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.form-group.d-flex label{
+  width: 200px;
+  /* background-color: gray; */
+  padding: 5px;
+  font-weight: 500;
+  
+}
+/*Brands 
+ */
+.right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  background-color: palevioletred;
+  flex-direction: column;
+}
+.brand-container .nav select {
+  outline: 0;
+  background: #EBEBEB;
+  padding: 10px 5px;
+  border-radius: 10px 10px 0px 0px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+.come {
+    position: relative;
+    background: #EBEBEB;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: flex;
+    margin-right: 5px;
+    height: 40px;
+}
+.come input {
+  margin-right: 5px;
+  padding: 5px;
+  border-radius: 10px;
+  outline: 0;
+  border: 1px;
+}
+.come i {
+  color: #616161;
+  margin-top: 8px;
+}
+.right img{
+  width: 200px;
+  height: 150px;
+  margin: 5px;
+  position: relative;
+}
+#brands{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  
+}
+.tab-content {
+  box-sizing: content-box;
+  background: #EBEBEB;
+  padding: 0px auto;
+  border-radius: 0px 10px 10px 10px;
+  border: none;
+}
+
+.tab-content img{
+  border-radius: 10px 10px 0 0;
+  margin: auto auto;
+}
+.tab-pane{
+  box-sizing: border-box;
+  display: flex !important;
+  flex-wrap: wrap;
+  height: auto;
+  margin: 20px auto;
+}
+
+#vehicle__alert .box, #brand .box {
+  box-sizing: border-box;
+  width: 250px !important;
+  border-radius: 10px;
+  margin: 10px auto;
+  height: 300px;
+}
+#vehicle__alert .box img, #brand .box img {
+  border-radius: 10px 10px 0 0 !important;
+  max-height: 200px;
+  
+}
+#vehicle__alert .overview, #brand .overview {
+  background-color: var(--sub-bg-color);
+  color: var(--sub-white);
+  padding: 10px;
+  bottom: 0;
+  height: 80px;
+  width: auto;
+  border-radius: 0 0 10px 10px;
+}
+#vehicle__alert .box:hover .overview, #brand .box:hover .overview {
+  display: block;
+  transition: all .5s ease;
+}
+#vehicle__alert .overview-header, #brand .box:hover .overview-header{
+  font-size: 1.2rem;
+}
+#vehicle__alert .overview-text, #brand .overview-text{
+  display:flex;
+  justify-content: space-between;
+}
+.testimonial{
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: var(--sub-white);
+}
+.testimonial p{
+  font-size: 1.1rem;
+}
+.testimonial .profile{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.testimonial .profile p{
+  font-size: 1rem;
+}
+.testimonial img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.col-sm-6 .img-fluid{
+  border-radius: 10px;
+}
+.col-sm-6 .service-content{
+  background-color: var(--sub-bg-color);
+  color: var(--sub-white);
+  padding: 20px;
+  border-radius: 10px;
+}
+.product-details{
+  background-color: var(--sub-white);
+  color: #616161;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+  text-align: center;
+}
+.product-details:hover {
+  color: #616161af;
+}
+.product-details:hover img {
+  transform: scaleX(-1);
+  transition: .2s ease-in;
+}
+#contact{
+  background-image: url(images/white-offroader-jeep-parking.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#contact .section, #contact .section-header{
+  background-color: transparent;
+}
+#contact .section-header h2{
+  color: var(--sub-text-color);
+  font-weight: bolder;
+  font-size: 2.3rem;
+}
+#contact .section-header p{
+  color: var(--sub-white);
+}
+#contact .form-control{
+  background-color: #fff;
+  opacity: .7;
+  color: var(--color-default);
+}
+#contact input::placeholder,
+#contact textarea::placeholder{
+  color: var(--color-default);
+}
+.container-fluid {
+  height: 10px;
+  margin: auto auto;
+}
+
+
+
+
+/* service page */
+
+.section .container .row .imag {
+  box-sizing: border-box;
+  padding: 0;
+  height: 350px;
+}
+.section .container .row .imag img {
+  width: 100%;
+  margin-right: 0px;
+  border-radius: 10px 0 0 10px;
+  height: inherit;
+}
+.section .container .row .oppo {
+  height: 350px;
+  width: 100%;
+  grid-area: a;
+}
+.section .container .row .oppo img {
+  height: 350px;
+  width: 100%;
+  border-radius: 0 10px 10px 0;
+}
+.section .container .back {
+  display: grid;
+  grid-template-areas: 'b a';
+  
+}
+.section .container .row .col{
+  box-sizing: border-box;
+  background: #131936;
+  height: inherit;
+  border-radius: 0 10px 10px 0;
+  text-align: left;
+  height: 350px;
+}
+.section .container .row .opp {
+  border-radius: 10px 0 0 10px;
+  grid-area: b;
+}
+.section .container .row .col .service-content p {
+  text-align: left;
+}
+
+/* for service page */
+@media screen and (max-width: 570px) {
+  
+  
+  .section .container .row .imag img {
+    border-radius: 10px 10px 0px 0;
+  }
+  .section .container .row .col {
+    border-radius: 0px 0 10px 10px;
+    height: auto;
+  }
+
+  .section .container .back {
+    display: block;
+  }
+.section .container .back .oppo {
+  height: 300px;
+}
+  .section .container .row .oppo img {
+    border-radius: 10px 10px 0px 0;
+  }
+  .section .container .row .opp {
+    border-radius: 0px 0 10px 10px;
+    height: auto;
+    margin-top: 50px;
+  }
+
+}
+
+
+
+
+
+
+
+/* for login and signup pages */
+
+.background{
+  background-image: url(images/white-offroader-jeep-parking.jpg);
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-image: contain;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(12rem, 2fr));
+  width: 100%;
+  place-items: center;
+}
+.text{
+  color: white;
+  margin-top: -300px;
+}
+.text .pock{
+  display: flex;
+}
+.error_message {
+  color: red;
+  align-content: centre;
+  text-align: center;
+  text-transform: capitalize;
+}
+.text .pock i{
+  font-size: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+
+}
+.text h1{
+  font-size: 40px;
+  margin-top: 5px;
+}
+.text p{
+  padding-top: 40px;
+  font-size: 25px;
+  padding: 40px 0px 0px 60px ;
+  line-height: 45px;
+}
+
+.form{
+max-width: 500px;
+width: 100%;
+background: white;  
+padding-top: 20px;
+border-radius: 10px;
+
+}
+.form a {
+  color: blue;
+  font-size: large;
+  font-weight: bolder;
+}
+.form h1{
+  margin: 10px 0px;
+  font-weight: 900;
+  font-size: 35px;
+  color:black;
+  text-align: center;
+  border-bottom: 1px solid rgb(197, 195, 195);
+  padding-bottom: 10px;
+  
+}
+
+.form .duo{
+  width: 100%; 
+  display: flex;
+  position: relative;
+
+}
+.form .duo .span{
+  width: 100%;
+  padding: 10px 10px;
+  
+}
+.form .duo .span i{
+  position: absolute;
+  top: 20px;
+  color: white;
+  background: blue;
+  padding: 20px 15px;
+
+}
+
+.form .duo input{
+  border: 0;
+  outline: 0;
+  margin: 10px 0px;
+  padding: 18px 0px 20px 50px;
+ 
+  width: 90%;
+  border: 1px solid rgb(201, 196, 196);
+  border-radius: 10px;
+  
+}
+.form .duo ::placeholder{
+  color: black;
+}
+
+.formal p a{
+  padding: 0px 20px;
+  color: blue;
+  font-weight: bolder;
+}
+button{
+  width: 100%;
+  background-color: rgb(0, 0, 243);
+  margin-top: 45px;
+  padding: 20px 10px;
+  font-size: 17px;
+  font-weight: 900;
+  border-radius: 0px 0px 10px 10px ;
+  outline: none;
+  color: white;
+  border: none;
+}
+button:hover{
+  background-color: rgb(60, 60, 226);
+}
+
+
+
+/* FORGET PASSWORD PAGE */
+
+
+.formal{
+  max-width: 500px;
+  
+  width: 100%;
+  background: white;  
+  padding-top: 30px;
+  border-radius: 10px;
+  
+}
+.formal h1{
+    margin: 10px 0px;
+    font-weight: 900;
+    font-size: 35px;
+    color:black;
+    text-align: center;
+    border-bottom: 1px solid rgb(197, 195, 195);
+    padding-bottom: 10px;
+    
+}
+
+.formal .duo{
+    width: 100%; 
+    display: flex;
+    position: relative;
+
+}
+.formal .duo .span{
+    width: 100%;
+    padding: 10px 10px;
+    
+}
+.formal .duo .span i{
+    position: absolute;
+    top: 20px;
+    color: white;
+    background: blue;
+    padding: 20px 15px;
+
+}
+
+.formal .duo input{
+    border: 0;
+    outline: 0;
+    margin: 10px 0px;
+    padding: 18px 0px 20px 50px;
+    width: 90%;
+    border: 1px solid rgb(201, 196, 196);
+    border-radius: 10px;
+    
+    }
+.formal .duo ::placeholder{
+    color: black;
+}
+
+/* LOGIN RESPONSIVENESS */
+@media only screen and (max-width: 600px){
+  .text{
+      margin-top: 200px;
+  }
+  .text h1{
+      font-size: 20px;
+  }
+  .text p{
+      font-size: 20px;
+      padding-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 360px){
+  .text{
+      margin-top: 0px;
+  }
+  .text h1{
+      font-size: 25px;
+  }
+
+}
+
